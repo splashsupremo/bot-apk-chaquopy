@@ -3,8 +3,7 @@ workflows:
     name: Android Chaquopy Build
     max_build_duration: 45
     environment:
-      vars:
-        JAVA_HOME: /usr/lib/jvm/java-11-openjdk
+      java: 11  # Use default supported version
     scripts:
       - name: Make Gradle executable
         script: |
@@ -17,7 +16,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - fashglobaltech@gmail.com
+          - fashanuhu@gmail.com
         notify:
           success: true
           failure: true

@@ -3,22 +3,21 @@ workflows:
     name: Android Chaquopy Build
     max_build_duration: 45
     environment:
-      android:
-        image: android-34
-      java: 17
       vars:
-        GRADLEW_PATH: "./gradlew"
+        JAVA_HOME: /usr/lib/jvm/java-11-openjdk
     scripts:
+      - name: Make Gradle executable
+        script: |
+          chmod +x ./gradlew
       - name: Build APK
         script: |
-          chmod +x gradlew
           ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
     publishing:
       email:
         recipients:
-          - your-email@example.com
+          - fashglobaltech@gmail.com
         notify:
           success: true
           failure: true
